@@ -5,10 +5,8 @@ def feed_animals(animals, food):
     food = list(reversed(sorted(food)))
     cnt = 0
     for i in range(len(food)):
-        for j in range(len(animals)):
-            if food[i] >= animals[j]:
-                cnt += 1
-                break
+        if food[i] >= animals[cnt]:
+            cnt += 1
     return cnt
 # Максимальная эффективность тогда, когда пропадает наименьшее кол-во еды => 
 # самой большой порцией нужно кормить самого требовательного животного, в этом помогает отсортированный по невозрастанию массив
