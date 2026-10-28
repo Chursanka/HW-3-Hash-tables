@@ -6,7 +6,7 @@ def dif_two_strs(a, b):
         else:
             Hash_b[i] = 1
     for i in a:
-        if i in b:
+        if i in Hash_b:
             Hash_b[i] -= 1
     for i in Hash_b:
         if Hash_b[i] > 0:
