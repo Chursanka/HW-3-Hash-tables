@@ -1,13 +1,13 @@
-def sum_two_elem(arr):
-    n = len(arr)
-    gap = len(arr) // 2
-    while (gap > 0):
-        for cur in range(gap, n):
-            m_gap = cur
-            while (m_gap >= gap) and (arr[m_gap] < arr[m_gap - gap]):
-                t = arr[m_gap]
-                arr[m_gap] = arr[m_gap - gap]
-                arr[m_gap - gap] = t
-                m_gap -= gap
-        gap = gap // 2
-    return arr
+def sum_two_elem(arr, target):
+    Hash = {}
+    for i in range(len(arr)):
+        dif = target - arr[i]
+        if dif in Hash:
+            return [i, Hash[dif]]
+        else:
+            Hash[arr[i]] = i
+    return []
+# В Hash у нас хранятся просмотренные элементы. Поэтому для того чтобы найти пару, нам нужен всего один проход по массиву
+# Если пара не нйадется - сложность линейная, так как один полный проход по массиву
+# Пусть мы на i-ом элементе. Если его пара "сзади" - мы нашли пару, 
+# если нет - то когда мы дойдем до парного с i элемента - пара уже найдется => В худшем случае О(n) 
