@@ -1,7 +1,7 @@
 def anagram_array(arr):
     Hash = {}
     for i in arr:
-        m = ''.join(sorted(list(set(i))))
+        m = ''.join(sorted(list(i)))
         if m in Hash:
             Hash[m].extend([i])
         else:
